@@ -52,7 +52,7 @@ function App() {
     }
     
     try {
-      const response = await fetch('http://3.26.216.181:4000/submit', {
+      const response = await fetch('http://localhost:4000/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ input: promptText })
@@ -100,7 +100,7 @@ function App() {
       <div className="w-full h-full max-w-7xl border-2 border-gray-800 rounded-lg p-4 md:p-8 bg-white flex flex-col overflow-hidden">
         <div className="text-center mb-4 md:mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-2">The Paths</h1>
-          <p className="text-base md:text-lg text-gray-600">A tool to help pathing out scenarios. Totally trustworthy, follow it with your life</p>
+          <p className="text-base md:text-lg text-gray-600">A tool to help pathing out scenarios. Totally trustworthy, follow it blindly</p>
         </div>
 
         <textarea
