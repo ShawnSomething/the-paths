@@ -52,7 +52,7 @@ function App() {
     }
     
     try {
-      const response = await fetch('http://3.26.216.181:4000/submit', {
+      const response = await fetch('/.netlify/functions/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ input: promptText })
