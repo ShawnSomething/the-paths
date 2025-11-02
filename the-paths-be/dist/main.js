@@ -20,24 +20,26 @@ app.post("/submit", async (req, res) => {
             messages: [
                 {
                     role: "user",
-                    content: `Based on this input: "${input}", provide exactly 3 scenarios.
-
+                    content: `Based on this scenario: "${input}", provide exactly 3 possible outcomes.
                     Format your response EXACTLY like this with no additional text:
 
                     **Positive**
                     - First bullet point
                     - Second bullet point
-                    - Third bullet point
+                    **Action**
+                    - What the user should do based on this outcome
 
                     **Neutral**
                     - First bullet point
                     - Second bullet point
-                    - Third bullet point
+                    **Action**
+                    - What the user should do based on this outcome
 
                     **Negative**
                     - First bullet point
                     - Second bullet point
-                    - Third bullet point
+                    **Action**
+                    - What the user should do based on this outcome
 
                     Do not add any introductory text or conclusions. Start directly with **Positive**.`
                 }
