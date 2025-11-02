@@ -68,15 +68,9 @@ function App() {
   };
 
   const handleScenarioClick = (scenario: string) => {
-  const type = getScenarioType(scenario);
-  const cleanScenario = scenario
-    .replace(/\*\*/g, '')
-    .replace(/^(Positive|Neutral|Negative)\n/i, '')
-    .trim();
-  
-  const prompt = `Given that this happened: "${cleanScenario}", what are 3 possible next outcomes?`;
-  handleSubmit(prompt, false, type);
-};
+    const type = getScenarioType(scenario);
+    handleSubmit(scenario, false, type);
+  };
 
   const handleInitialGenerate = () => {
     setPath([{ text: input, timestamp: Date.now() }]);
