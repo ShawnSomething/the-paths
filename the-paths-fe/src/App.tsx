@@ -89,6 +89,7 @@ function App() {
     }
   };
 
+<<<<<<< HEAD
   const updateNodeChildren = (node: TreeNode, targetId: string, children: TreeNode[]): TreeNode => {
     if (node.id === targetId) {
       return { ...node, children };
@@ -140,6 +141,18 @@ function App() {
     const prompt = `Given that this happened: "${cleanScenario}", what are 3 possible next outcomes?`;
     handleSubmit(prompt, newNodeId);
   };
+=======
+  const handleScenarioClick = (scenario: string) => {
+  const type = getScenarioType(scenario);
+  const cleanScenario = scenario
+    .replace(/\*\*/g, '')
+    .replace(/^(Positive|Neutral|Negative)\n/i, '')
+    .trim();
+  
+  const prompt = `Given that this happened: "${cleanScenario}", what are 3 possible next outcomes?`;
+  handleSubmit(prompt, false, type);
+};
+>>>>>>> parent of 64c20cb (actual app.tsx version)
 
   const handleInitialGenerate = () => {
     console.log('handleInitialGenerate called with input:', input);
