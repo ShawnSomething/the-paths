@@ -67,76 +67,10 @@ function App() {
     }
   };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-  const updateNodeChildren = (node: TreeNode, targetId: string, children: TreeNode[]): TreeNode => {
-    if (node.id === targetId) {
-      return { ...node, children };
-    }
-    
-    if (node.children.length > 0) {
-      return {
-        ...node,
-        children: node.children.map(child => updateNodeChildren(child, targetId, children))
-      };
-    }
-    
-    return node;
-  };
-
-  const markNodeAsSelected = (node: TreeNode, targetId: string): TreeNode => {
-    if (node.id === targetId) {
-      return { ...node, isSelected: true };
-    }
-    
-    if (node.children.length > 0) {
-      return {
-        ...node,
-        children: node.children.map(child => markNodeAsSelected(child, targetId))
-      };
-    }
-    
-    return node;
-  };
-
-  const handleScenarioClick = (scenario: string, index: number) => {
-    if (!currentNodeId) return;
-    
-    const newNodeId = `${currentNodeId}-${index}`;
-    
-    // Mark this node as selected in the tree
-    setTree(currentTree => {
-      if (!currentTree) return currentTree;
-      return markNodeAsSelected(currentTree, newNodeId);
-    });
-    
-    setCurrentNodeId(newNodeId);
-    
-    const cleanScenario = scenario
-      .replace(/\*\*/g, '')
-      .replace(/^(Positive|Neutral|Negative)\n/i, '')
-      .trim();
-    
-    const prompt = `Given that this happened: "${cleanScenario}", what are 3 possible next outcomes?`;
-    handleSubmit(prompt, newNodeId);
-=======
   const handleScenarioClick = (scenario: string) => {
     const type = getScenarioType(scenario);
     handleSubmit(scenario, false, type);
->>>>>>> parent of 8ea1eec (bad commit)
   };
-=======
-  const handleScenarioClick = (scenario: string) => {
-  const type = getScenarioType(scenario);
-  const cleanScenario = scenario
-    .replace(/\*\*/g, '')
-    .replace(/^(Positive|Neutral|Negative)\n/i, '')
-    .trim();
-  
-  const prompt = `Given that this happened: "${cleanScenario}", what are 3 possible next outcomes?`;
-  handleSubmit(prompt, false, type);
-};
->>>>>>> parent of 64c20cb (actual app.tsx version)
 
   const handleInitialGenerate = () => {
     setPath([{ text: input, timestamp: Date.now() }]);
